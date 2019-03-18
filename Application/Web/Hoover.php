@@ -34,7 +34,7 @@ class Hoover {
         $result = [];
         $elements = $this->getContent($url)->getElementsByTagName('*');
         foreach ($elements as $node) {
-            if ($node->hasAttributes($attr)) {
+            if ($node->hasAttribute($attr)) {
                 $value = $node->getAttribute($attr);
                 if ($domain) {
                     if (stripos($value, $domain) !== FALSE) {

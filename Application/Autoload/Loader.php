@@ -24,7 +24,6 @@ class Loader {
         $fn = str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
         foreach (self::$dirs as $start) {
             $file = $start . DIRECTORY_SEPARATOR . $fn;
-            var_dump($file);
             if (self::loadFile($file)) {
                 $success = true;
                 break;
