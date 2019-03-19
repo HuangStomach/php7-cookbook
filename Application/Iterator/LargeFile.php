@@ -39,6 +39,15 @@ class LargeFile {
         return $count;
     }
 
+    protected function fileIteratorCSV($numBytes = 1024) {
+        $count = 0;
+        while (!$this->file->eof()) {
+            yield $this->file->fgetcsv();
+            $count++;
+        }
+        return $count;
+    }
+
     public function getIterator($type = 'ByLine', $numBytes = NULL) {
         if (!in_array($type, $this->allowedTypes)) {
             $message = __METHOD__ . ' : ' . self::ERROR_TYPE . PHP_EOL;
