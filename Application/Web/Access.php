@@ -3,6 +3,7 @@ namespace Application\Web;
 
 use Exception;
 use SplFileObject;
+
 class Access {
     const ERROR_UNABLE = 'ERROR: unable to open file';
     protected $log;
