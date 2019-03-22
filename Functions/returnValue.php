@@ -5,7 +5,7 @@ function returnsString(Datetime $date, $format) :string {
 }
 
 function convertToString($a, $b, $c) :string {
-    return $a + $b + $c;
+    return (string)($a + $b + $c);
 }
 
 function makesDateTime($year, $month, $day) :DateTime {
