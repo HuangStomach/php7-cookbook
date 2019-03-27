@@ -3,7 +3,7 @@ namespace Application\Generic;
 
 use PDO;
 use Exception;
-use Application\Databas\ { Connection, ConnectionAwareInterface };
+use Application\Database\ { Connection, ConnectionAwareInterface };
 
 class ListFactory {
     const ERROR_NAME = 'Class must be Connection Aware';
