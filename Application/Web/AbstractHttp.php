@@ -56,12 +56,24 @@ class AbstractHttp {
         return $this->metadata[$key] ?? null;
     }
 
+    public function getUri() {
+        return $this->uri;
+    }
+
     public function setUri($uri, array $params = null) {
         $this->uri = $uri;
-        $first = TRUE;
+        // $first = TRUE;
         if ($params) {
             $this->uri .= '?' . http_build_query($params);
         }
+    }
+
+    public function getCookies() {
+        return $this->cookies ?? [];
+    }
+
+    public function setCookie($key, $value) {
+        $this->cookies[$key] = $value;
     }
 
     public function getDataEncoded() {
