@@ -6,15 +6,30 @@ use Locale as PhpLocale;
 
 class Locale extends PhpLocale {
     const FALLBACK_LOCALE = 'en';
+    const ERROR_UNABLE_TO_PARSE = 'ERROR: Unable to parse';
+    const FALLBACK_CURRENCY = 'GBP';
+
     protected $localeCode;
     protected $numberFormatter;
+    protected $currencyFormatter;
+    protected $currencyLookup;
+    protected $currencyCode;
 
-    public function __construct($localeString = null) {
+    public function __construct($localeString = null, IsoCodesInterface $currencyLookup = null) {
         if ($localeString) {
             $this->setLocaleCode($localeString);
         }
         else {
             $this->setLocaleCode($this->getAcceptLanguage());
+        }
+        $this->currencyLookup = $currencyLookup;
+        if ($this->currencyLookup) {
+            $this->currencyCode = $this->currencyLookup
+                ->getCurrencyCodeFromIso2CountryCode($this->getCountryCode())
+                ->currency_code;
+        }
+        else {
+            $this->currencyCode = self::FALLBACK_CURRENCY;
         }
     }
 
@@ -30,6 +45,21 @@ class Locale extends PhpLocale {
         $this->localeCode = $this->acceptFromHttp($acceptLangHeader);
     }
 
+    public function getCountryCode() {
+        return $this->getRegion($this->getLocaleCode());
+    }
+
+    public function getCurrencyCode() {
+        return $this->currencyCode;
+    }
+
+    public function getCurrencyFormatter() {
+        if (!$this->currencyFormatter) {
+            $this->currencyFormatter = new NumberFormatter($this->getLocaleCode(), NumberFormatter::CURRENCY);
+        }
+        return $this->currencyFormatter;
+    }
+
     public function getNumberFormatter() {
         if (!$this->numberFormatter) {
             $this->numberFormatter = new NumberFormatter($this->getLocaleCode(), NumberFormatter::DECIMAL);
@@ -43,6 +73,16 @@ class Locale extends PhpLocale {
 
     public function parseNumber($string) {
         $result = $this->getNumberFormatter()->parse($string);
-        return ($result) ? $result : 'error';
+        return ($result) ? $result : self::ERROR_UNABLE_TO_PARSE;
+    }
+
+    public function formatCurrency($currency) {
+        return $this->getCurrencyFormatter()
+            ->formatCurrency($currency, $this->currencyCode);
+    }
+
+    public function parseCurrency($string) {
+        $result = $this->getCurrencyFormatter()->parseCurrency($string, $this->currencyCode);
+        return ($result) ? $result : self::ERROR_UNABLE_TO_PARSE;
     }
 }
