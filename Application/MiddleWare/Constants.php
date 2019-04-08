@@ -34,6 +34,7 @@ class Constants {
     const MODE_WRITE = 'w';
 
     const ERROR_BAD = 'ERROR: ';
+    const ERROR_INVALID_URI = 'ERROR: invaild uri';
     const ERROR_UNKNOWN = 'ERROR: unknown';
 
     const STATUS_CODES = [
