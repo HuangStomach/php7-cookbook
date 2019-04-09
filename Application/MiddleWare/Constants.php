@@ -35,6 +35,11 @@ class Constants {
 
     const ERROR_BAD = 'ERROR: ';
     const ERROR_INVALID_URI = 'ERROR: invaild uri';
+    const ERROR_MOVED_DONE = 'ERROR: already moved';
+    const ERROR_BAD_DIR = 'ERROR: dir donot exist';
+    const ERROR_BAD_FILE = 'ERROR: bad file';
+    const ERROR_FILE_NOT = 'ERROR: file is not uploaded';
+    const ERROR_MOVE_UNABLE = 'ERROR: cannot move file';
     const ERROR_UNKNOWN = 'ERROR: unknown';
 
     const STATUS_CODES = [
