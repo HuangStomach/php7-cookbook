@@ -40,6 +40,7 @@ class Constants {
     const ERROR_BAD_FILE = 'ERROR: bad file';
     const ERROR_FILE_NOT = 'ERROR: file is not uploaded';
     const ERROR_MOVE_UNABLE = 'ERROR: cannot move file';
+    const ERROR_BODY_UNREADABLE = 'ERROR: body unreadable';
     const ERROR_UNKNOWN = 'ERROR: unknown';
 
     const STATUS_CODES = [
