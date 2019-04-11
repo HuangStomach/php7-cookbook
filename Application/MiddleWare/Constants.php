@@ -44,6 +44,7 @@ class Constants {
     const ERROR_HTTP_METHOD = 'ERROR: invalid method';
     const ERROR_NO_UPLOADED_FILES = 'ERROR: no uploaded files';
     const ERROR_INVALID_UPLOADED = 'ERROR: no invalid uploaded';
+    const ERROR_INVALID_STATUS = 'ERROR: no invalid status';
     const ERROR_UNKNOWN = 'ERROR: unknown';
 
     const STATUS_CODES = [
