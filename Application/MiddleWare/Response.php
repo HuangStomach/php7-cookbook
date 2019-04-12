@@ -3,7 +3,7 @@ namespace Applcation\MiddleWare;
 
 use Psr\Http\Message\ { ResponseInterface, StreamInterface };
 
-class Reponse extends Message implements ResponseInterface {
+class Response extends Message implements ResponseInterface {
     protected $status;
 
     public function __construct($statusCode = null, StreamInterface $body = null, $headers = null, $version = null) {
