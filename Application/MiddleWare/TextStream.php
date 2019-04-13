@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Applcation\MiddleWare;
+namespace Application\MiddleWare;
 
 use Throwable;
 use RuntimeException;

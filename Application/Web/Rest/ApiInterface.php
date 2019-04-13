@@ -1,7 +1,7 @@
 <?php
-namespace Applcation\Web\Rest;
+namespace Application\Web\Rest;
 
-use Applcation\Web\ { Request, Response };
+use Application\Web\ { Request, Response };
 
 interface ApiInterface {
     public function get(Request $request, Response $response);

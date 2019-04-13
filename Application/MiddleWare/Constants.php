@@ -1,5 +1,5 @@
 <?php
-namespace Applcation\MiddleWare;
+namespace Application\MiddleWare;
 
 class Constants {
     const HEADER_HOST = 'Host';

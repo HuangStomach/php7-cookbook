@@ -1,5 +1,5 @@
 <?php
-namespace Applcation\MiddleWare;
+namespace Application\MiddleWare;
 
 use Psr\Http\Message\ { MessageInterface, StreamInterface, UriInterface };
 

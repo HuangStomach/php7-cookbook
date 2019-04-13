@@ -1,6 +1,6 @@
 <?php
 
-namespace Applcation\MiddleWare;
+namespace Application\MiddleWare;
 
 use RuntimeException;
 use InvalidArgumentException;
