@@ -2,7 +2,7 @@
 namespace Application\Generic\Hydrator;
 
 use InvalidArgumentException;
-use Application\Generic\Hydrator\Strategy\ { GetSet, PublicProps, Extending };
+use Application\Generic\Hydrator\Strategy\ { GetSet, PublicProps, Extending, HydratorInterface };
 
 class Any {
     const STRATEGY_PUBLIC = 'PublicProps';

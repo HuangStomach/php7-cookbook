@@ -1,5 +1,5 @@
 <?php
-namespace Application\Generic\Hydrator;
+namespace Application\Generic\Hydrator\Strategy;
 
 class GetSet {
     public static function hydrate(array $array, $object) {
