@@ -24,6 +24,7 @@ class Publisher implements SplSubject {
     public function attach(SplObserver $subscriber) {
         $this->subscribers[$subscriber->getKey()] = $subscriber;
         $this->linked[$subscriber->getKey()] = $subscriber->getPriority();
+        asort($this->linked);
     }
 
     public function detach(SplObserver $subscriber) {
